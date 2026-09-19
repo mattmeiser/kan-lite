@@ -1,0 +1,4 @@
+#!/bin/execlineb -P
+
+cd /app/backend
+npx tsx src/index.ts

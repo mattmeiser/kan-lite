@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* True-neutral grey scale for light-mode surfaces/borders/text; accent,
+   semantic, and label hues plus dark-mode values are unaffected. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f8f9fa;
+  --surface-3: #e9ecef;
+  --border: #dee2e6;
+  --border-strong: #ced4da;
+  --text: #212529;
+  --text-muted: #5f6771;
+  --text-faint: #6c757d;
+  --accent: #0a58ca;
+  --accent-soft: #cfe2ff;
+  --accent-contrast: #ffffff;
+  --sem-critical: #b8451f;
+  --sem-critical-soft: #f5e2da;
+  --sem-warning: #93690a;
+  --sem-warning-soft: #f3e7ce;
+  --sem-good: #1e8a72;
+  --sem-good-soft: #dcefe9;
+  --danger: #d1332e;
+  --danger-soft: #f7dede;
+  --lbl-red: #d8434a;
+  --lbl-orange: #d9711a;
+  --lbl-green: #2f9e63;
+  --lbl-blue: #2e71b0;
+  --lbl-grey: #8b8d98;
+  --lbl-purple: #7e52c0;
+  --lbl-yellow: #b8960c;
+  --lbl-amber: #b45309;
+  --lbl-brown: #8a5a34;
+  --lbl-deep_orange: #c1440e;
+  --lbl-dark_grey: #5b5e6b;
+  --lbl-pink: #c2255c;
+  --lbl-teal: #0d9488;
+  --lbl-cyan: #0e7490;
+  --lbl-lime: #65932e;
+  --lbl-light_green: #57a639;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  --font-ui: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --scrim: rgba(20, 23, 26, 0.38);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #1a1c22;
+    --surface: #22252c;
+    --surface-2: #2a2d35;
+    --surface-3: #343740;
+    --border: #3d4048;
+    --border-strong: #52565f;
+    --text: #f1f2f4;
+    --text-muted: #adb1b8;
+    --text-faint: #888d96;
+    --accent: #4ea3e0;
+    --accent-soft: #1c2f3f;
+    --accent-contrast: #ffffff;
+    --sem-critical: #ffa06b;
+    --sem-critical-soft: #4a2f1c;
+    --sem-warning: #ffcf5c;
+    --sem-warning-soft: #4a3a18;
+    --sem-good: #63e6b0;
+    --sem-good-soft: #1c4636;
+    --danger: #ff8078;
+    --danger-soft: #4a2422;
+    --lbl-red: #ff8a84;
+    --lbl-orange: #ffb066;
+    --lbl-green: #6be0a0;
+    --lbl-blue: #7dbaff;
+    --lbl-grey: #b7bfc9;
+    --lbl-purple: #c9a0ff;
+    --lbl-yellow: #fde047;
+    --lbl-amber: #f59e0b;
+    --lbl-brown: #d0a377;
+    --lbl-deep_orange: #ff9670;
+    --lbl-dark_grey: #aaadbb;
+    --lbl-pink: #fa93c8;
+    --lbl-teal: #2dd4bf;
+    --lbl-cyan: #22d3ee;
+    --lbl-lime: #a3e635;
+    --lbl-light_green: #86d966;
+    --scrim: rgba(0, 0, 0, 0.55);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #1a1c22;
+  --surface: #22252c;
+  --surface-2: #2a2d35;
+  --surface-3: #343740;
+  --border: #3d4048;
+  --border-strong: #52565f;
+  --text: #f1f2f4;
+  --text-muted: #adb1b8;
+  --text-faint: #888d96;
+  --accent: #4ea3e0;
+  --accent-soft: #1c2f3f;
+  --accent-contrast: #ffffff;
+  --sem-critical: #ffa06b;
+  --sem-critical-soft: #4a2f1c;
+  --sem-warning: #ffcf5c;
+  --sem-warning-soft: #4a3a18;
+  --sem-good: #63e6b0;
+  --sem-good-soft: #1c4636;
+  --danger: #ff8078;
+  --danger-soft: #4a2422;
+  --lbl-red: #ff8a84;
+  --lbl-orange: #ffb066;
+  --lbl-green: #6be0a0;
+  --lbl-blue: #7dbaff;
+  --lbl-grey: #b7bfc9;
+  --lbl-purple: #c9a0ff;
+  --lbl-yellow: #fde047;
+  --lbl-amber: #f59e0b;
+  --lbl-brown: #d0a377;
+  --lbl-deep_orange: #ff9670;
+  --lbl-dark_grey: #aaadbb;
+  --lbl-pink: #fa93c8;
+  --lbl-teal: #2dd4bf;
+  --lbl-cyan: #22d3ee;
+  --lbl-lime: #a3e635;
+  --lbl-light_green: #86d966;
+  --scrim: rgba(0, 0, 0, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* iOS Safari/Chrome auto-zooms on focus for any text input under 16px -- this is the floor for every
+   native form control, overridden below only by rules that already specify 16px or more. */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.icon-btn:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+.icon-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: none;
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+.pill.role-admin {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.pill.role-user {
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+.pill.role-reader {
+  background: transparent;
+  color: var(--text-faint);
+  border: 1px solid var(--border-strong);
+}
+.pill.due-over {
+  background: var(--sem-critical-soft);
+  color: var(--sem-critical);
+}
+.pill.due-soon {
+  background: var(--sem-warning-soft);
+  color: var(--sem-warning);
+}
+.pill.due-ok {
+  background: var(--surface-3);
+  color: var(--text-faint);
+}
+
+.badge-prio {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border: none;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  cursor: default;
+}
+button.badge-prio {
+  cursor: pointer;
+}
+.badge-prio.high {
+  background: var(--sem-critical-soft);
+  color: var(--sem-critical);
+}
+.badge-prio.medium {
+  background: var(--sem-warning-soft);
+  color: var(--sem-warning);
+}
+.badge-prio.low {
+  background: var(--sem-good-soft);
+  color: var(--sem-good);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--surface-2);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.chip.chip-sm {
+  padding: 2px 7px;
+  font-size: 11.5px;
+}
+.chip[aria-pressed='true'] {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.btn-secondary {
+  background: var(--surface-3);
+  color: var(--text);
+  border: none;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 7px 13px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.field-input,
+.field-textarea,
+.field-select {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+.field-textarea {
+  resize: vertical;
+  min-height: 70px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-faint);
+  opacity: 1;
+}
+.field-label {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  margin-bottom: 5px;
+}
+
+.error-banner {
+  background: var(--sem-critical-soft);
+  color: var(--sem-critical);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14.5px;
+}
+
+.locked-control {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+[hidden] {
+  display: none !important;
+}
